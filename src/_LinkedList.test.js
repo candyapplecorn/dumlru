@@ -82,4 +82,34 @@ describe('LinkedList', () => {
             expect(ll.toString()).toEqual(String([]))
         });
     });
+
+    describe('iterability', () => {
+        beforeEach(() => {
+            ll = new LinkedList();
+            (3).times(ll.insert.bind(ll));
+        });
+        it('can be iterated like a standard iterable', () => {
+            let counter = 1;
+
+            for (let item of ll){
+                expect(item.value).toBe(counter++)
+            }
+        })
+        it('has a working forEach', () => {
+            const arr = [1, 2, 3];
+            ll.forEach(({ value  }, i, a) => {
+                expect(value).toEqual(arr[i]);
+            });
+        });
+        it('has a working map', () => {
+            const arr = [1, 2, 3].map(n => n * 2);
+
+            const res = ll.map(({ value }) => value * 2);
+
+            res.forEach((e, i, a) => {
+                expect(e).toEqual(arr[i]);
+            });
+        });
+    });
+
 });

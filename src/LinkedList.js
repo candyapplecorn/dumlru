@@ -98,17 +98,45 @@ class LinkedList {
         return null;
     }
 
-    toString(){
+    toArray(){
         const items = [];
-        const walker = this.walk();
 
-        for (let item of walker){
-            items.push(item.value)
+        for (let item of this){
+            items.push(item)
         }
 
-        return String(items);
+        return items;
+    }
+
+    toString(){
+        return String(this.toArray().map(n => n.value))
+    }
+
+    forEach(cb){
+        let counter = 0;
+        let arr = this.toArray();
+
+        for (let item of this){
+            cb(item, counter++, arr)
+        }
+    }
+
+    map(cb){
+        const result = [];
+
+        this.forEach((e, i, a) => {
+            result.push(
+                cb(e, i, a)
+            )
+        });
+
+        return result;
     }
 }
+
+LinkedList.prototype[Symbol.iterator] = function(){
+    return this.walk();
+};
 
 class Node {
     constructor(value){
