@@ -1,0 +1,30 @@
+{
+  "name": "dumlru",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/candyapplecorn/dumlru.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/candyapplecorn/dumlru/issues"
+  },
+  "homepage": "https://github.com/candyapplecorn/dumlru#readme",
+  "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.51",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015-node5": "^1.2.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "jest": "^23.2.0"
+  }
+}
