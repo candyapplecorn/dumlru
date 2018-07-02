@@ -54,8 +54,8 @@ class LinkedList {
     set tail(v){ return this.insert(v) }
 
     _push(value){
-        const sent = this.sentinel;
-        const prev = this.sentinel.prev;
+        const sent = this.sentinel
+        const prev = this.sentinel.prev
 
         sent.prev = value
         prev.next = value
@@ -144,19 +144,19 @@ class Node {
         this._left = this._right = this.prev = this.next = this.forward = this.back = null;
     }
 
-    get left(){return this._left; }
+    get left(){return this._left;}
     get prev(){return this._right;}
     get back(){return this._right;}
 
-    set left(v){return this._left = v; }
+    set left(v){return this._left = v;}
     set prev(v){return this._right = v;}
     set back(v){return this._right = v;}
 
-    get right(){return this._right; }
+    get right(){return this._right;}
     get next(){return this._left;}
     get forward(){return this._left;}
 
-    set right(v){return this._right = v; }
+    set right(v){return this._right = v;}
     set next(v){return this._left = v;}
     set forward(v){return this._left = v;}
 }

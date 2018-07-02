@@ -42,6 +42,35 @@ Insert wraps around _push, ensuring only Nodes get inserted. By making the senti
 
 ![_Push code](assets/linkedlist_push.png)
 
+### Upon adding multiple items:
+
+The Linked List instance may look like this:
+
+![A Linked List instance with multiple nodes](assets/ll_all.png)
+
+## Iterating the Linked List
+
+You want to walk through the linked list while your current node's next pointer doesn't equal the sentinel node? Baka, this is 2018! We have [iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)! This took a little fineggeling. First, there needs to be a generator. Or rather, a generator function that returns an iterable object. Or something.
+
+![The Generator](assets/iterator_1_walk.png)
+
+This walk generator's returned iterator can be assigned to the Linked List class' `Symbol.iterator` property, thus allowing iteration of an instance of a Linked List:
+
+![Hooking Up the Iterator](assets/iterator_4_connection.png)
+
+I chose to do this outside of the new Class syntax because I couldn't figure out how to do it outside of the constructor's body, which would create a different function for every instance of a Linked List. Assigning the walk method to Symbol.iterator lets the programmer perform the following magic:
+
+![Using the Iterator](assets/iterator_2_toArray.png)
+
+Notice the code is literally iterating `this`. That's the magic of Symbol.iterator!
+
+I think it's fun to implement common array methods in my own data structure implementations, so here's some more:
+
+![Using the Iterator some more](assets/iterator_3_methods.png)
+
+
+
+
 ## A note on Inconsistent Naming
 
 I didn't put much work into naming; when making linked lists, I generally just think of queues and stacks, plus all the pointer logic from lists and trees. The result is a jumble. Sometime's it's easier for me to think about these things with "next" and "prev", other times it's easier to reason with "left" and "right". Luckily, Ecmascript's getter/setter notation lets me be inconsistent with my naming!
