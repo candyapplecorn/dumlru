@@ -6,7 +6,11 @@ A dumb implementation of an LRU
 
 It's an acronym that stands for Least Recently Used. When people say LRU they're usually talking about a Least Recently Used cache, although the concept of frequency is used in other places, like Firefox's [frecency algorithm](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm)
 
-An LRU is a data structure made by combining a linked list and a hash. It's a data structure made out of data structures! "Yo dawg, we heard you like data structures, so we put data structures in your data structures so you can structure your data in data structures while you structure your data in a data structure"
+An LRU is a data structure made by combining a linked list and a hash. It's a data structure made out of data structures! 
+
+![Yo Dawg...](assets/yo_dawg.jpg)
+
+"Yo dawg, we heard you like data structures, so we put data structures in your data structures so you can structure your data in data structures while you structure your data in a data structure"
 
 It uses a linked list sorted such that the most recently used item is at the head of the list, while the least recently used item is at the tail of the list. Whenever an item is accessed, its node in the linked list is placed in the front of the list.
 
