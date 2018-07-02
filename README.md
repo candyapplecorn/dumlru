@@ -28,7 +28,7 @@ I've chosen to use a doubly-linked linked list implementation using a sentinel n
 
 ![A Fresh Linked List](assets/ll_sent.png)
 
-The new linked list instance only has a sentinel node. Its length is 0 even though it has a node. That's because the sentinel node is special; it's not an element of this container, rather it's there to make other operations easier.
+The new linked list instance only has a sentinel node. Its length is 0 even though it has a node. That's because the sentinel node is special; it's not an element of this container, rather it's there to make other operations easier. The sentinel node's next and previous pointers point to itself, instead of having values like NULL. All code in the Linked List will know that iterating the nodes terminates when the current node, or the next node in the iterable sequence, is or points to the sentinel node. Iteration starts and ends with the sentinel node, rather than, for example, NULL.
 
 ### Upon adding an item:
 
@@ -38,7 +38,7 @@ When adding an item, simply update the sentinel node's previous and next pointer
 
 ![Insert - Wrapper for Push](assets/linkedlistinsert.png)
 
-Insert wraps around _push, ensuring only Nodes get inserted.
+Insert wraps around _push, ensuring only Nodes get inserted. By making the sentinel node's next and previous point to itself, the same code can be used for inserting the first element into the list as for any subsequent elements. The sentinel node removes the need to add branching statements.
 
 ![_Push code](assets/linkedlist_push.png)
 
